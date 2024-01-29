@@ -16,10 +16,10 @@ function AlbumPicker() {
         const url = `https://musicbrainz.org/ws/2/release?fmt=json&query=artist:${artist}`;
         const response = await fetch(url);
         const mbResult = (await response.json()) as {
-            releases: { title: string }[];
+            releases: { title: string, date: string }[];
         };
         const { releases } = mbResult;
-        setAlbums(releases.map(({ title }) => title));
+        setAlbums(releases.map(({ title, date }) => `${title} (${date})`));
     }
     return (
         <form onSubmit={handleSubmit}>
@@ -28,6 +28,12 @@ function AlbumPicker() {
                 <input name="artist" />
             </label>
             <button type="submit">Search</button>
+            <br/>
+            <label>
+                Album name:
+                <input name="album"/>
+                <button type="submit">Filter</button>
+            </label>
             <p>Albums:</p>
             <ol>
                 {albums.map((album) => (
