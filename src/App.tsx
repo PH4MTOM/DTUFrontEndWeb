@@ -6,7 +6,8 @@ import './App.css'
 
 
 function AlbumPicker() {
-    const [albums, setAlbums] = useState<string[]>([]);
+    const [songs, setSongs] = useState<string[]>([]);
+    const [filteredAlbums, setFilteredSongs] = useState<string[]>([]);
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
         const target = e.target as typeof e.target & {
@@ -19,8 +20,15 @@ function AlbumPicker() {
             releases: { title: string, date: string }[];
         };
         const { releases } = mbResult;
-        setAlbums(releases.map(({ title, date }) => `${title} (${date})`));
+        const songList = releases.map(({ title, date }) => `${title} (${date})`)
+        setSongs(songList);
+        setFilteredSongs(songList);
     }
+    function handleFilter(e: React.ChangeEvent<HTMLInputElement>) {
+        const album = e.target.value.toLowerCase();
+        setFilteredSongs(songs.filter(a => a.toLowerCase().includes(album)));
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <label>
@@ -31,12 +39,11 @@ function AlbumPicker() {
             <br/>
             <label>
                 Album name:
-                <input name="album"/>
-                <button type="submit">Filter</button>
+                <input name="album" onChange={handleFilter}/>
             </label>
             <p>Albums:</p>
             <ol>
-                {albums.map((album) => (
+                {filteredAlbums.map((album) => (
                     <li>{album}</li>
                 ))}
             </ol>
