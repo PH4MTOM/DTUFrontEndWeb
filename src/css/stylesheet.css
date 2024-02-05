@@ -1,0 +1,42 @@
+/* Apply to all HTML elements */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body, #backgroundImageFrontpage {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+/* This is a specific ID */
+#textCenter {
+    text-align: center;
+}
+
+/* This is a class */
+.textCenter {
+    text-align: center;
+}
+
+/* Background Image for Frontpage */
+#backgroundImageFrontpage {
+    background-image: url("../assets/radio-tower.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 700px;
+    width: 100%;
+}
+
+.removeMarginTop {
+    margin-top: 0;
+}
