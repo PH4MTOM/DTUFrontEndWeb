@@ -9,6 +9,7 @@ body, #backgroundImageFrontpage {
     box-sizing: border-box;
 }
 
+
 h1 {
     color: white;
 }
@@ -28,11 +29,12 @@ p {
 }
 
 /* Background Image for Frontpage */
-#backgroundImageFrontpage {
+.backgroundImageFrontpage {
     background-image: url("../assets/radio-tower.png");
-    background-size: cover;
+    background-size: auto;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
+    background-clip: border-box;
     height: 708cm;
     width: 100vw;
 }
