@@ -17,37 +17,89 @@ p {
     color: white;
 }
 
-/* This is a specific ID */
-#textCenter {
-    text-align: center;
-}
-
 /* This is a class */
 .textCenter {
     text-align: center;
 }
-/* Background Image for Frontpage */
-.backgroundImageFrontpage {
-    background-image: url("../assets/radio-tower.png");
-    background-size: cover;
-    background-clip: border-box;
-    box-sizing: border-box;
-    height: 708cm;
-    width: 100%;
-}
 
-/* Background Image for Frontpage
 .backgroundImageFrontpage {
-    background-image: url("../assets/radio-tower.png");
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-clip: border-box;
-    height: 708cm;
-    width: 100vw;
+    background-image: url("../assets/radio-towerdarker.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 900px;
 }
- */
 
 .removeMarginTop {
     margin-top: 0;
+}
+/* This part is used for navbar */
+
+.navbarHomepage {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbarItemLeft {
+    display: inline;
+    float: left;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+.navbarItemRight {
+    display: inline;
+    float: right;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.navbarItemA {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+/* Animation part for Navbar */
+.navbarItemA:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+ }
+
+.navbarItemA:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+}
+
+.marginRight80px {
+    margin-right: 80px;
+}
+
+.marginTop45px {
+    margin-top: 45px;
+}
+
+/* Used for the center text in the div */
+.textHomepageCenter {
+    text-align: center;
+    font-size: xxx-large;
+    margin-top: 12%;
+    z-index: -1;
+}
+
+.textCenterHomepageSmall {
+    margin-top: 120px;
+    text-align: center;
+    font-size: large;
+    z-index: -1;
 }
